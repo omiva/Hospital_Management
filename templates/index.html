@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>HOME</title>-->
+<!--</head>-->
+<!--<div style="text-align: center;">Center this text!-->
+<!--<body style="background-color:black;">-->
+<!--<h1 style="background-color:aqua">THIS IS TEXT SIZE H1</h1>-->
+<!--<h2 style="background-color:blueviolet">THIS IS TEXT SIZE H2</h2>-->
+<!--<h3 style="background-color:white">THIS IS TEXT SIZE H3</h3>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends 'navi.html' %}
+{% block title %}
+    HOME
+{% endblock title %}
+{% block body %}
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {#                {% with messages = get_flashed_messages(with_categories=true) %}#}
+        {% if messages %}
+            {% for catagory, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"> &times; </span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock body %}
